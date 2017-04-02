@@ -33,6 +33,15 @@ https://gist.github.com/gabonator/3d2bc36e9eb62c52742d45113126c1ba
 
 https://ipcamtalk.com/threads/review-top-201-super-mini-720p-hd-ip-cam-the-cheapest-ip-cam-so-far.1775/
 
+http://www.areresearch.net/2016/06/a-look-at-top-308-ip-camera.html
+http://www.openipcam.com/forum/index.php?topic=1183.0
+https://felipe.astroza.cl/hacking-hi3518-based-ip-camera/
+http://www.solomisto.com.br/cabo-rs232/dvr-recovery-rs232-by-idelson.pdf
+http://www.cctvforum.com/viewtopic.php?f=19&t=44928&start=30
+https://ipcamtalk.com/threads/review-top-201-super-mini-720p-hd-ip-cam-the-cheapest-ip-cam-so-far.1775/page-35#post-142514
+https://thinkpad.tweakblogs.net/blog/12055/ip-camera-zonder-snapshot-mogelijkheid-m-punt-bv-script-toch-een-snapshot-verkrijgen-uit-rtsp-stream!
+
+
 V4.02.R12.00006210.10010.140700.00000
 
 
