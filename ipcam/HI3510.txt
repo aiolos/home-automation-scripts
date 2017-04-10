@@ -1,0 +1,96 @@
+Stream: rtsp://192.168.1.10//user=admin&password=&channel=1&stream=0.sdp
+Telnet: poort 9527
+Default user: Admin
+Default password: [null]
+Root user: root
+Root password: xmhdipc
+
+telnet 192.168.1.10 9527 (might have to hit enter twice, as I didnt get a login prompt immediately)
+login as admin
+hit enter for password
+shell (after hitting enter, you'll just be on a blank line.. dont know what this is all about)
+telnetd -f
+open another window, and telnet to 192.168.1.10 (default port; 23)
+login: root
+password: xmhdipc
+
+get your MAC address:
+ip a
+(look for "link/ether") or you could do "ip a | grep ether"
+then to enable dhcp:
+echo 1 > /mnt/mtd/Config/dhcp.cfg
+
+you'll then lose your connection when you get a new IP. simply hit ctrl-] then type quite to get out of telnet
+
+
+http://www.hkvstar.com/technology-news/china-ip-camera-configuration-firmware.html
+
+http://marcusjenkins.com/hacking-cheap-ebay-ip-camera/
+
+https://pan.sohu.net/f/MTY2NzYsaGRkaWQ.htm
+
+https://gist.github.com/gabonator/3d2bc36e9eb62c52742d45113126c1ba
+
+https://ipcamtalk.com/threads/review-top-201-super-mini-720p-hd-ip-cam-the-cheapest-ip-cam-so-far.1775/
+
+http://www.areresearch.net/2016/06/a-look-at-top-308-ip-camera.html
+http://www.openipcam.com/forum/index.php?topic=1183.0
+https://felipe.astroza.cl/hacking-hi3518-based-ip-camera/
+http://www.solomisto.com.br/cabo-rs232/dvr-recovery-rs232-by-idelson.pdf
+http://www.cctvforum.com/viewtopic.php?f=19&t=44928&start=30
+https://ipcamtalk.com/threads/review-top-201-super-mini-720p-hd-ip-cam-the-cheapest-ip-cam-so-far.1775/page-35#post-142514
+https://thinkpad.tweakblogs.net/blog/12055/ip-camera-zonder-snapshot-mogelijkheid-m-punt-bv-script-toch-een-snapshot-verkrijgen-uit-rtsp-stream!
+
+
+V4.02.R12.00006210.10010.140700.00000
+
+
+Pinout Serial:
+__Rood/Zwart plug naar lens ___ RX TX GND __
+
+# cat mtd
+dev:    size   erasesize  name
+mtd0: 00040000 00010000 "boot"
+mtd1: 00370000 00010000 "romfs"
+mtd2: 00280000 00010000 "user"
+mtd3: 00140000 00010000 "web"
+mtd4: 00040000 00010000 "custom"
+mtd5: 00050000 00010000 "mtd"
+
+0x000000000000-0x000000040000 : "boot"      0
+0x000000040000-0x0000003b0000 : "romfs"     1
+0x0000003b0000-0x000000630000 : "user"      2
+0x000000630000-0x000000770000 : "web"       3
+0x000000770000-0x0000007b0000 : "custom"    4
+0x0000007b0000-0x000000800000 : "mtd"       5
+
+Partition 0 (not necessary):
+tftp mtdblock0
+sf erase 0 0x40000
+sf write 0x80008000 0 0x40000
+
+Partition 1:
+tftp mtdblock1
+sf erase 0x40000 0x370000
+sf write 0x80008000 0x40000 0x370000
+
+Partition 2:
+tftp mtdblock2
+sf erase 0x3b0000 0x280000
+sf write 0x80008000 0x3b0000 0x280000
+
+Partition 3:
+tftp mtdblock3
+sf erase 0x630000 0x140000
+sf write 0x80008000 0x630000 0x140000
+
+Partition 4:
+tftp mtdblock4
+sf erase 0x770000 0x40000
+sf write 0x80008000 0x770000 0x40000
+
+Partition 5:
+tftp mtdblock5
+sf erase 0x7b0000 0x50000
+sf write 0x80008000 0x7b0000 0x50000
+
