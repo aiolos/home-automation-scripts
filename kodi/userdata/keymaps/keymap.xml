@@ -1,0 +1,158 @@
+<keymap>
+  <FullscreenVideo>
+    <joystick name="AppleRemote">
+      <button id="1">XBMC.RunScript(/storage/scripts/volumeUp.py)</button>
+      <button id="2">XBMC.RunScript(/storage/scripts/volumeDown.py)</button>
+    </joystick>
+  </FullscreenVideo>
+  <Visualisation>
+    <joystick name="AppleRemote">
+      <button id="1">XBMC.RunScript(/storage/scripts/volumeUp.py)</button>
+      <button id="2">XBMC.RunScript(/storage/scripts/volumeDown.py)</button>
+      <button id="3">SkipPrevious</button>
+      <button id="4">SkipNext</button>
+      <button id="5">Pause</button>
+      <button id="6">Fullscreen</button>
+      <button id="7">XBMC.ActivateWindow(MusicOSD)</button>
+      <button id="8">Stop</button>
+    </joystick>
+  </Visualisation>
+  <MusicOSD>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </MusicOSD>
+  <VisualisationSettings>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </VisualisationSettings>
+  <VisualisationPresetList>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </VisualisationPresetList>
+  <SlideShow>
+    <joystick name="AppleRemote">
+      <button id="1">ZoomIn</button>
+      <button id="2">ZoomOut</button>
+      <button id="3">PreviousPicture</button>
+      <button id="4">NextPicture</button>
+      <button id="6">Stop</button>
+      <button id="7">Info</button>
+      <button id="8">Rotate</button>
+    </joystick>
+  </SlideShow>
+  <ScreenCalibration>
+    <joystick name="AppleRemote">
+      <button id="5">NextCalibration</button>
+    </joystick>
+  </ScreenCalibration>
+  <SelectDialog>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </SelectDialog>
+  <VideoOSD>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </VideoOSD>
+  <VideoMenu>
+    <joystick name="AppleRemote">
+      <button id="5">Select</button>
+      <button id="6">Stop</button>
+      <button id="7">OSD</button>
+      <button id="8"/>
+    </joystick>
+  </VideoMenu>
+  <OSDVideoSettings>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </OSDVideoSettings>
+  <OSDAudioSettings>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </OSDAudioSettings>
+  <VideoBookmarks>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </VideoBookmarks>
+  <MyVideoLibrary>
+    <joystick name="AppleRemote">
+      <button id="6">ParentDir</button>
+      <button id="7">Info</button>
+    </joystick>
+  </MyVideoLibrary>
+  <MyVideoFiles>
+    <joystick name="AppleRemote">
+      <button id="6">ParentDir</button>
+      <button id="7">Info</button>
+    </joystick>
+  </MyVideoFiles>
+  <MyVideoPlaylist>
+    <joystick name="AppleRemote">
+      <button id="6">Playlist</button>
+    </joystick>
+  </MyVideoPlaylist>
+  <VirtualKeyboard>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </VirtualKeyboard>
+  <ContextMenu>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </ContextMenu>
+  <FileStackingDialog>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </FileStackingDialog>
+  <MusicInformation>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </MusicInformation>
+  <MovieInformation>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </MovieInformation>
+  <PictureInfo>
+    <joystick name="AppleRemote">
+      <button id="3">Left</button>
+      <button id="4">Right</button>
+      <button id="6">Close</button>
+    </joystick>
+  </PictureInfo>
+  <AddonBrowser>
+    <joystick name="AppleRemote">
+      <button id="6">ParentDir</button>
+    </joystick>
+  </AddonBrowser>
+  <AddonInformation>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </AddonInformation>
+  <AddonSettings>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </AddonSettings>
+  <TextViewer>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </TextViewer>
+  <NumericInput>
+    <joystick name="AppleRemote">
+      <button id="6">Close</button>
+    </joystick>
+  </NumericInput>
+</keymap>

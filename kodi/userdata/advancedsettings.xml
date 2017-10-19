@@ -1,0 +1,11 @@
+<advancedsettings>
+  <video>
+    <subsdelayrange>140</subsdelayrange>  <!-- Delay range for subtitles, in seconds. -->
+    <timeseekforward>30</timeseekforward>  <!-- Time to seek forward in seconds when doing a short seek.  Defaults to 30. -->
+    <timeseekbackward>-10</timeseekbackward>
+  </video>
+  <useddsfanart>true</useddsfanart>
+  <jsonrpc>
+    <tcpport>9090</tcpport>
+  </jsonrpc>
+</advancedsettings>
