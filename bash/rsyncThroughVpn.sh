@@ -1,41 +1,68 @@
 #!/bin/bash
 # From: https://superuser.com/questions/297342/rsync-files-newer-than-1-week
-# Usage: Fetch last 3 days with ./rsyncThroughVpn.sh 3 or ./rsyncThroughVpn.sh 3 dry for a dry run.
-TIME=$1
+# Usage: You can call the script to fetch last last 3 days with ./rsyncThroughVpn.sh 3 or ./script.sh 3 dry for a dry run.
+DAYS=$1
 DRYRUN=$2
 
+SOURCEHOST="user@sourceHostOrIp"
+SOURCEPATH="/source/path/"
+
+DESTHOST="user@destinationHostOrIp"
+DESTPATH="/destination/path/"
+
+MOUNTPOINT="/mnt/point"
+
 ## 
-echo "Starting rsync script:"
+echo "Info: Starting rsync script:"
 date
 echo "======================"
 
-if [[ -z $TIME ]]; then
-  echo "Error: no time argument."
-  echo "Please enter the number of days to sync."
+if [[ -z $DAYS ]]; then
+  echo "Error: no days argument."
+  echo "Please enter the number of days to sync as first argument."
   exit 1
 fi
 
 if [[ $DRYRUN = "dry" ]]; then
   DRYRUNCMD="--dry-run"
-  echo "Dry run initiated..."
+  echo "Info: Dry run initiated..."
 fi
 
-# Mount with sshfs
-echo "Mount sshfs"
-sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa user@destination:/ /mnt/path
+## Mountpoint should be empty before mount
+if [[ $(ls -A $MOUNTPOINT) ]]; then
+  echo "Error: Mountpoint $MOUNTPOINT is not empty, exit script"
+  exit 1
+fi
 
-echo "Start rsync"
+## Mount the destination path with sshfs
+echo "Info: Mount $DESTHOST at $MOUNTPOINT"
+sshfs -o allow_other,IdentityFile=~/.ssh/id_rsa $DESTHOST:/ $MOUNTPOINT
+
+## Mountpoint should not be empty after mount
+if [ "$(ls -A $MOUNTPOINT | wc -l )" -eq 0 ]; then
+  echo "Error: Mountpoint $MOUNTPOINT is still empty, mounting probably failed, exit script"
+  exit 1
+fi
+
+echo "Info: Start rsync"
 rsync -avz $DRYRUNCMD --files-from=<(ssh \
-    user@source "find /media/recordings/path \
-    -mtime -$TIME -name *.mkv -type f \
+    $SOURCEHOST "find $SOURCEPATH \
+    -mtime -$DAYS -name *.mkv -type f \
      -printf '%f\n'") \
-  user@source:/media/recordings/path/ /mnt/path/recordings/.
+  $SOURCEHOST:$SOURCEPATH $MOUNTPOINT/$DESTPATH
 
-echo "rsync completed"
+echo "Info: rsync completed"
 
 ## Unmount sshfs
-echo "unmount sshfs"
-umount /mnt/path
-echo "sync script completed"
+echo "Info: unmount $MOUNTPOINT"
+umount $MOUNTPOINT
+
+## Mountpoint should be empty after unmount
+if [[ $(ls -A $MOUNTPOINT) ]]; then
+  echo "Error: Mountpoint $MOUNTPOINT is not empty after unmount"
+  exit 1
+fi
+
+echo "Info: sync script completed successfully"
 date
 echo "====================="
