@@ -1,0 +1,67 @@
+https://www.banggood.com/SQ8-MINI-Camera-TF-Card-Voice-Recorder-Night-Vision-DV-Car-DVR-p-1022153.html?rmmds=myorder
+
+Specificaties van de SQ8
+- SQ8 mini 1080P full HD car DVR camera recorder
+- High definition full HD1080P
+- Compact design, portable handheld
+- Video format: 1920 x 1080P, 1280 x 720P
+- Support TV out, TV monitor video connection
+- Image resolution: 12MP (4032 x 3024)
+- Support 32GB TF card max. (not included)
+- Image proportion: 4 : 3
+- Support system: Windows ME / 2000 / XP / 2003 / Vista, Mac OS, Linux
+- Battery capacity: 200mAh
+- Working time: About 100 minutes at 1080P 30fps
+- Charging time: About 2 - 3 hours
+- Charging voltage: DC 5V
+- Interface type: Mini 8 pin USB
+- Camera lens size: 3mm
+- Dimensions width/height/depth: 23 x 25 x 21 mm
+- Package includes mini car DVR camera, USB / TV out 2-in-1 cable, bracket, clip and Chinese / English user manual
+
+Gebruikshandleiding van de SQ8
+De meegeleverde handleiding is in het Chinees en in Chinees steenkolen Engels: beiden onleesbaar.
+Op Youtube staan echter diverse instructiefilmpjes, bijvoorbeeld via deze weblink.
+Op basis van dit filmpje heb ik onderstaande handleiding opgetekend.
+Bediening van de SQ8 uitsluitend met de knoppen On en Mode op de bovenzijde van de SQ8. De status is zichtbaar aan de LED op de achterzijde van de SQ8.
+
+Opladen: verbind de SQ8 enkele uren via de meegeleverde kabel met een USB-oplader (5 Volt).
+
+Uitlezen van de memory kaart: verbind de SQ8 via de meegeleverde kabel met een USB-poort op een PC. De memory card is nu beschikbaar als schijf op de PC en aanwezige foto's en video's kunnen naar de PC worden gekopieerd.
+
+Datum en tijd instellen: via tekstbestand "TIMEREST.TXT" in de root van de SD-memorycard.
+Inhoud van dit bestand: Datum en tijd in format YYYYMMDDHHMMSS, gevolgd door een spatie en hoofdleter Y. Bijvoorbeeld (voor 15:10 op 19 februari 2017): 20170219151000 Y
+
+Gebruik als webcam: verbind de SQ8 via de meegeleverde kabel met een USB-poort op een PC. Druk kort op knop On van de SQ8. De LED is continu rood.
+Bekijk het beeld van de SQ8 in een webcam programma, bijvoorbeeld de gratis versie van ManyCam. Met dit programma kunnen video's en foto's worden gemaakt.
+Druk nogmaals op knop On om webcam mode uit te schakelen, de memory card is dan weer beschikbaar als schijf.
+
+Stand-alone opname 720p: Standby mode 720p instellen: houd knop On 2 seconden ingedrukt. De LED gaat aan en is blauw.
+Opmerking: wanneer gedurende enige tijd (30 tot 60 seconden) geen andere knop wordt ingedrukt, dan schakelt de SQ8 weer uit: de LED op de achterzijde gaat uit.
+Start opname: druk 1x op knop On. De LED knippert 3x blauw en gaat dan uit.
+Stop opname: druk 1x op knop On. De LED gaat aan en is blauw.
+
+Stand-alone opname 1080p. Vanuit Standby 720p: druk 1x op knop Mode. De LED is blauw/rood.
+Start opname: druk 1x op knop On. De LED op de achterzijde knippert 3x blauw/rood en gaat dan uit.
+Stop opname: druk 1x op knop On. De LED op de achterzijde gaat weer aan en is blauw/rood.
+
+Stand-alone foto's maken. Vanuit Standby 1080p: druk 1x op Mode. De LED is rood.
+Vanuit Standby 720p: druk 1x op knop Mode, de LED wordt blauw/rood. Druk nogmaals 1x op knop Mode, de LED wordt rood.
+Foto's maken: druk steeds 1x op knop On. De LED gaat elke keer kort uit.
+Terug naar Standby mode 720p: druk 1x op knop Mode. De LED wordt blauw (standby mode).
+
+Stand-alone night vision mode (infrarode LED's aan) instellen: druk 2 seconden op knop On. De LED knippert 2x rood en wordt dan blauw.
+Start opname: druk 1x op knop On. De LED op de achterzijde knippert 3x blauw en gaat dan uit.
+Stop opname: druk 1x op knop On. De LED op de achterzijde gaat weer aan en is blauw (standby mode)
+
+Stand-alone motion detection mode op 720p instellen en starten: druk 3 secs op knop Mode.
+Start opname: druk 1x op knop On. De LED op de achterzijde knippert 3x blauw/rood, is even uit en nog 1x blauw/rood en blijft dan uit.
+Stop motion detection mode: druk 1x op knop On. De LED op de achterzijde is blauw (standby mode).
+
+Stand-alone motion detection mode op 1080p instellen en starten: druk 1x op knop Mode. De LED wordt blauw/rood. Druk vervolgens 3 seconden op knop Mode. De LED knippert enkele malen rood, vervolgens enkele malen blauw/rood en gaat dan uit.
+Stop motion detection mode: druk 1x op knop On. De LED op de achterzijde is blauw (standby mode).
+
+
+https://gertvanvoorst.nl/treinproject_sq8.html
+
+https://dashcamtalk.com/forum/threads/sq8-mini-dv-camera-1080p-full-hd-car-dvr.18034/page-2
