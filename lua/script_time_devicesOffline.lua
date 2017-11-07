@@ -49,14 +49,15 @@ end
 
 onlineDevices = {
     'Wemos Meterkast',
-    'Status Chromecast Audio',
-    'Status OrangePiOne',
-    'Status LibreElec (TVHeadend)'
+    'Chromecast Audio',
+    'OrangePiOne',
+    'LibreElec (TVHeadend)',
+    'Esp Boven (esp5)',
 }
 for i, onlineDevice in ipairs(onlineDevices) do
-    if (otherdevices_svalues[onlineDevice] == 'Off'
-        and timedifference(otherdevices_lastupdate[onlineDevice]) > 1800
-        and timedifference(otherdevices_lastupdate[onlineDevice]) < 1860
+    if (otherdevices[onlineDevice] == 'Off'
+        and timedifference(otherdevices_lastupdate[onlineDevice]) > 180
+        and timedifference(otherdevices_lastupdate[onlineDevice]) < 240
     ) then
         counter = counter + 1
         commandArray[counter] = {
