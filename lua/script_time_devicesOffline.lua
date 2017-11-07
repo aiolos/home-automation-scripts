@@ -38,11 +38,29 @@ end
 usageDevices = {'kWh meter Sale'}
 for i, usageDevice in ipairs(usageDevices) do
     if (timedifference(otherdevices_lastupdate[usageDevice]) > 1800
-    and timedifference(otherdevices_lastupdate[usageDevice]) < 1860
+        and timedifference(otherdevices_lastupdate[usageDevice]) < 1860
     ) then
         counter = counter + 1
         commandArray[counter] = {
             ['SendNotification'] = 'Sinds ' .. otherdevices_lastupdate[usageDevice] .. ' geen update van ' .. usageDevice
+        }
+    end
+end
+
+onlineDevices = {
+    'Wemos Meterkast',
+    'Status Chromecast Audio',
+    'Status OrangePiOne',
+    'Status LibreElec (TVHeadend)'
+}
+for i, onlineDevice in ipairs(onlineDevices) do
+    if (otherdevices_svalues[onlineDevice] == 'Off'
+        and timedifference(otherdevices_lastupdate[onlineDevice]) > 1800
+        and timedifference(otherdevices_lastupdate[onlineDevice]) < 1860
+    ) then
+        counter = counter + 1
+        commandArray[counter] = {
+            ['SendNotification'] = usageDevice .. ' is offline sinds ' .. otherdevices_lastupdate[usageDevice]
         }
     end
 end
