@@ -1,37 +1,38 @@
 #!/bin/bash
 # Change the rid values below to match the sensors on your devices page in Domoticz
+DomoticzIp='192.168.1.1'
+DomoticzPort='8080'
+BotId='YourBotId'
+BotKey='YourBotKey'
+ChatId='-YourChatId'
 
-#SendMsgTo=$1
-TmpFileName='/home/pi/WeatherFile.txt'
+$domoticzUrl = 'http://'$DomoticzIp':'$DomoticzPort'/json.htm?type=devices&rid='
 # array of temperature / humidity sensor indexes
-declare -a arr=("16" "805")
+declare -a arr=("3444" "12")
 
 ## now loop through the above array
 for index in "${arr[@]}"
 do
-   ResultString+=`curl 'http://192.168.1.49:8080/json.htm?type=devices&rid='$index 2>/dev/null | /usr/local/bin/jq -r .result[].Name`
+   ResultString+=`curl $domoticzUrl$index 2>/dev/null | /usr/bin/jq -r .result[].Name`
    ResultString+=" "
-   ResultString+=`curl 'http://192.168.1.49:8080/json.htm?type=devices&rid='$index 2>/dev/null | /usr/local/bin/jq -r .result[].Temp`
+   ResultString+=`curl $domoticzUrl$index 2>/dev/null | /usr/bin/jq -r .result[].Temp`
    ResultString+="°C, "
-#   ResultString+=`curl 'http://'$DomoticzIP':'$DomoticzPort'/json.htm?type=devices&rid='$index 2>/dev/null | jq -r .result[].Humidity`
+#   ResultString+=`curl $domoticzUrl$index 2>/dev/null | jq -r .result[].Humidity`
 #   ResultString+="%\n"
 done
 echo $ResultString
 #Outside prediction
 ResultString+=" "
-ForeCast=`curl 'http://192.168.1.49:8080/json.htm?type=devices&rid=12' 2>/dev/null | /usr/local/bin/jq -r .result[].Forecast`
-echo $ForeCast
+ForeCast=`curl $domoticzUrl'12' 2>/dev/null | /usr/bin/jq -r .result[].Forecast`
+#echo $ForeCast
 case "$ForeCast" in
 2) ResultString+="⛅️" #Partly Cloudy
 	;;
 3) ResultString+="☁️" #Cloudy
 	;;
-*) echo `curl 'http://192.168.1.49:8080/json.htm?type=devices&rid=13' 2>/dev/null | /usr/local/bin/jq -r .result[].ForecastStr`
+*) echo `curl $domoticzUrl'13' 2>/dev/null | /usr/bin/jq -r .result[].ForecastStr`
 	;;
 esac
 
 #Send
-echo -e $ResultString > $TmpFileName
-#echo telegram-cli -W -e "send_document SendMsgTo $TmpFileName"
-/home/pi/tg/scripts/generic/telegram.sh send_text NameOne $TmpFileName
-/home/pi/tg/scripts/generic/telegram.sh send_text NameTwo $TmpFileName
+curl "https://api.telegram.org/bot${BotId}:${BotKey}/sendMessage?chat_id=${ChatId}&text=${ResultString}"
