@@ -1,0 +1,71 @@
+#!/usr/bin/env python
+
+import sys
+import requests
+import md5
+import re
+import ConfigParser
+
+# output config if requested
+if len(sys.argv) > 1 and sys.argv[1] == "config":
+    print "graph_order rx tx"
+    print "graph_title EE BrightBox2 DSL Traffic"
+    print "graph_args --base 1000"
+    print "graph_vlabel Kbits"
+    print "rx.label Received"
+    print "rx.type DERIVE"
+    print "rx.min 0"
+    print "tx.label Transmitted"
+    print "tx.type DERIVE"
+    print "tx.min 0"
+
+    sys.exit(0)
+
+# load config (host, user, password)
+config = ConfigParser.ConfigParser()
+config.read(['/etc/brightbox.cfg','brightbox.cfg'])
+
+host = config.get('brightbox','host')
+user = config.get('brightbox','user')
+password = config.get('brightbox','password')
+
+# login to router
+
+# hash password to submit over wire
+pc = md5.new(password).hexdigest()
+
+endpoint = "http://%s/login.cgi" % (host)
+
+post_data = { 'usr': user, 'pws': pc, 'GO':'status.htm'}
+
+r = requests.post(endpoint, data = post_data)
+
+# grab session cookie
+urn_re = "new_urn\ \=\ '(.*)'"
+urn = re.search(urn_re,r.text).group(1)
+cookies = dict(urn=urn)
+
+
+# grab line tx/rx speeds
+
+# need to look for
+# var xdslStatistics = [{rxbytes:'1672331666',txbytes:'299038490'}, null];
+
+
+endpoint = "http://%s/cgi/cgi_dsl_status.js" % (host)
+r = requests.get(endpoint,cookies=cookies)
+
+rx_re = "rxbytes:'(\d+)',"
+rx_value = re.search(rx_re,r.text).group(1)
+print "rx.value %s" % rx_value
+
+tx_re = ",txbytes:'(\d+)'"
+tx_value = re.search(tx_re,r.text).group(1)
+print "tx.value %s" % tx_value
+
+
+
+# logout
+
+endpoint = "http://%s/logout.cgi" % (host)
+r = requests.post(endpoint,cookies=cookies)

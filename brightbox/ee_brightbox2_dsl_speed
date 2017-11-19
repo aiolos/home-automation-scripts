@@ -1,0 +1,80 @@
+#!/usr/bin/env python
+
+import sys
+import requests
+import md5
+import re
+import ConfigParser
+
+# output config if requested
+if len(sys.argv) > 1 and sys.argv[1] == "config":
+    print "graph_order down up"
+    print "graph_title EE BrightBox2 DSL Speed"
+    print "graph_args --base 1000"
+    print "graph_vlabel Speed (Mbps)"
+    print "down.label Down"
+    print "down.type GAUGE"
+    print "up.label Up"
+    print "up.type GAUGE"
+
+    sys.exit(0)
+
+# load config (host, user, password)
+config = ConfigParser.ConfigParser()
+config.read(['/etc/brightbox.cfg','brightbox.cfg'])
+
+host = config.get('brightbox','host')
+user = config.get('brightbox','user')
+password = config.get('brightbox','password')
+
+domoticzhost = config.get('domoticz','host')
+domoticzport = config.get('domoticz','port')
+domoticzdownloadidx = config.get('domoticz','downloadidx')
+domoticzuploadidx = config.get('domoticz','uploadidx')
+
+# login to router
+
+# hash password to submit over wire
+pc = md5.new(password).hexdigest()
+
+endpoint = "http://%s/login.cgi" % (host)
+
+post_data = { 'usr': user, 'pws': pc, 'GO':'status.htm'}
+
+r = requests.post(endpoint, data = post_data)
+
+# grab session cookie
+urn_re = "new_urn\ \=\ '(.*)'"
+urn = re.search(urn_re,r.text).group(1)
+cookies = dict(urn=urn)
+
+
+# grab line up/down speeds
+
+# need to look for
+# var xdslLineStatus = [{state:'UP',mode:'VDSL2',mod_type:'Profile%2017a',snr_margin_down:'63',snr_margin_up:'71',latn_down:'113',latn_up:'0',satn_down:'0',satn_up:'0',output_power_down:'%2D62',output_power_up:'135',rate_down:'57154',rate_up:'19999',attainable_rate_down:'67032000',attainable_rate_up:'22319000',chantype:'fast'}, null];
+
+endpoint = "http://%s/cgi/cgi_dsl_status.js" % (host)
+r = requests.get(endpoint,cookies=cookies)
+
+down_re = ",rate_down:'(\d+)',"
+down_value = float(re.search(down_re,r.text).group(1)) / float(1000)
+# print "down.value %s" % down_value
+
+up_re = ",rate_up:'(\d+)',"
+up_value = float(re.search(up_re,r.text).group(1)) / float(1000)
+# print "up.value %s" % up_value
+
+# Do requests to domoticz:
+# Download
+domoticzendpoint = "http://%s:%s/json.htm?type=command&param=udevice&idx=%s&nvalue=0&svalue=%s" % (domoticzhost, domoticzport, domoticzdownloadidx, down_value)
+r = requests.get(domoticzendpoint)
+
+# Upload
+domoticzendpoint = "http://%s:%s/json.htm?type=command&param=udevice&idx=%s&nvalue=0&svalue=%s" % (domoticzhost, domoticzport, domoticzuploadidx, up_value)
+r = requests.get(domoticzendpoint)
+
+# logout
+
+endpoint = "http://%s/logout.cgi" % (host)
+r = requests.post(endpoint,cookies=cookies)
