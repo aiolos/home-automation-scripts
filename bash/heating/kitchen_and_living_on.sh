@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Setpoints to 12 degrees
 # IDX Thermostaat: 3459
