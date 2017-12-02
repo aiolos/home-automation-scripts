@@ -11,4 +11,4 @@ curl -o /dev/null "http://192.168.38.110:8080/json.htm?type=command&param=udevic
 # curl -o /dev/null "http://192.168.38.110:8080/json.htm?type=command&param=udevice&idx=3511&nvalue=0&svalue=13" # Living
 
 # Close other valves:
-curl -o /dev/null "http://192.168.38.110:8080/json.htm?type=command&param=udevice&idx=3511&nvalue=0&svalue=13" # Study
+curl -o /dev/null "http://192.168.38.110:8080/json.htm?type=command&param=udevice&idx=3511&nvalue=0&svalue=16" # Study
