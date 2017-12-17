@@ -61,7 +61,7 @@ for i, onlineDevice in ipairs(onlineDevices) do
     ) then
         counter = counter + 1
         commandArray[counter] = {
-            ['SendNotification'] = usageDevice .. ' is offline sinds ' .. otherdevices_lastupdate[usageDevice]
+            ['SendNotification'] = onlineDevice .. ' is offline sinds ' .. otherdevices_lastupdate[onlineDevice]
         }
     end
 end

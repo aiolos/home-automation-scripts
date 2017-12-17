@@ -12,7 +12,7 @@ DESTPATH="/destination/path/"
 
 MOUNTPOINT="/mnt/point"
 
-## 
+##
 echo "Info: Starting rsync script:"
 date
 echo "======================"
@@ -48,7 +48,7 @@ echo "Info: Start rsync"
 rsync -avz $DRYRUNCMD --files-from=<(ssh \
     $SOURCEHOST "find $SOURCEPATH \
     -mtime -$DAYS -name *.mkv -type f \
-     -printf '%f\n'") \
+     -printf '%P\n'") \
   $SOURCEHOST:$SOURCEPATH $MOUNTPOINT/$DESTPATH
 
 echo "Info: rsync completed"

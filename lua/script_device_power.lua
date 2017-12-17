@@ -1,4 +1,4 @@
--- This script sums the values of 3 power generation devices into one value in Domoticz
+-- This script sums the values of 4 power generation devices into one value in Domoticz
 --
 commandArray = {}
 
