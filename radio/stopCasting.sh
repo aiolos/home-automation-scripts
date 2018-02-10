@@ -2,5 +2,5 @@
 
 /home/pi/stream2chromecast/stream2chromecast.py -devicename 192.168.38.217 -stop &
 
-# Pioneer Off
-curl -o /dev/null http://192.168.38.177/?code=A55AD827\&p=2\&r=5\&f=40\&d=20 &
+# Pioneer off
+curl -o /dev/null http://192.168.38.220/control?cmd=IRSEND,PIONEER,0xA55AD827,32,2 &
