@@ -13,13 +13,13 @@ commandArray = {}
 
 t2 = os.time{year=year, month=month, day=day, hour=hour, min=minutes, sec=seconds}
 difference = (os.difftime (t1, t2))
-if (otherdevices['Beweging Boven'] == 'Off'
-    and otherdevices['Radio Boven'] == 'On'
+if (otherdevices['Beweging boven'] == 'Off'
+    and otherdevices['Radio boven'] == 'On'
     and difference > 300
     and difference < 400
 ) then
     commandArray['SendNotification'] = 'Radio boven wordt uitgezet'
-    commandArray['Radio Boven'] = 'Off'
+    commandArray['Radio boven'] = 'Off'
 end
 
 return commandArray
