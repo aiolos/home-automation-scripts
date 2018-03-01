@@ -1,1 +1,6 @@
 http://www.cnx-software.com/2015/09/26/how-to-use-orange-pi-camera-in-linux-with-motion/
+
+## GPIO
+http://opi-gpio.readthedocs.io/en/latest/api-documentation.html
+https://www.raspberrypi.org/forums/viewtopic.php?t=33020
+https://kaspars.net/blog/linux/orange-pi-zero-gpio
