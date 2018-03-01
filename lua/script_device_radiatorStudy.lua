@@ -3,7 +3,7 @@ studyTemp, studyHum, studyBar = string.match(otherdevices_svalues['Study UK'], "
 
 if (otherdevices['study_radiator_mag_aan'] == 'On'
     and otherdevices['Radiator boven'] == 'Off'
-    and ((studyTemp - 0.5) < tonumber(otherdevices_svalues['Study']))
+    and ((studyTemp + 0.5) < tonumber(otherdevices_svalues['Study']))
 ) then
         commandArray['Radiator boven']='On'
         print ('Zet radiator boven aan')
