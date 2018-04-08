@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Save this file in /storage/.config/shutdown.sh on OpenElec
+# Save this file in /lib/systemd/system-shutdown/shutdown.sh on OSMC
 
 case "$1" in
   halt)
