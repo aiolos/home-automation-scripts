@@ -1,0 +1,14 @@
+[Unit]
+Description=Run command at shutdown
+Requires=network.target
+After=network.target
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/true
+ExecStop=/home/osmc/scripts/shutdown.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target
