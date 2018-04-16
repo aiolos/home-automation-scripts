@@ -1,0 +1,27 @@
+on Settempstudy do
+  TaskValueSet 2,1,%eventvalue%
+endon
+
+on Settempwoon do
+  TaskValueSet 2,2,%eventvalue%
+endon
+
+on Settempkeuken do
+  TaskValueSet 2,3,%eventvalue%
+endon
+
+on Setbuiten do
+  TaskValueSet 2,4,%eventvalue%
+endon
+
+on Settotal do
+  TaskValueSet 6,1,%eventvalue%
+endon
+
+on Settoday do
+  TaskValueSet 6,2,%eventvalue%
+endon
+
+on Button#State=1 do
+  SendToHTTP 192.168.38.110,8080,/json.htm?type=command&param=switchlight&idx=1000&switchcmd=Toggle
+endon
