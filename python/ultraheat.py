@@ -7,6 +7,8 @@
 #                                                                                                #
 # Source:                                                                                        #
 # Script from Magnat in https://gathering.tweakers.net/forum/list_messages/1535019               #
+#                                                                                                #
+# Requirement: Python3                                                                           #
 ##################################################################################################
 
 import serial
