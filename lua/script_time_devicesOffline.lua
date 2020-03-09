@@ -16,13 +16,13 @@ commandArray = {}
 counter = 0
 temperatureDevices = {
     'Buiten',
-    'Woonkamer',
-    'Woonkamer (eye)',
+    'Slaapkamer',
+    'Woonkamer ESP',
+    'Hal (eye)',
     'Badkamer',
-    'Keuken',
-    'Study UK',
-    'Temperatuur regenmeter',
-    'BMP ESP',
+    'Bijkeuken',
+    'Magazijn ESP',
+    'Meterkast (ESP)',
 }
 for i, temperatureDevice in ipairs(temperatureDevices) do
     if (timedifference(otherdevices_lastupdate[temperatureDevice]) > 7200
