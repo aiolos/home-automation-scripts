@@ -21,3 +21,4 @@ Most of these scripts communicate with [Domoticz](www.domoticz.com).
 - Setup log2ram
 - Test lua scripts
 - Setup/Test Telegram
+- Install Wakeonlan (`apt get install wakeonlan`)

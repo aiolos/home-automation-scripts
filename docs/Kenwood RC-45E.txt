@@ -1,0 +1,18 @@
+Kenwood RC-45E remote codes (for Kenwood A-45 Amplifier)
+
+Very much the codes from http://lirc.sourceforge.net/remotes/kenwood/RC-A0400
+
+Power: 1D00B946
+Mute:  1D0039C6
+Vol-:  1D0059A6
+Vol+:  1D00D926
+Phono: 1D0009F6
+CD:    1D0049B6
+AUX:   1D00C936
+Tape A:1D0029D6
+Tape B:1D00A956
+Video: 1D006996
+Tuner: 1D008976
+
+Example command:
+http://192.168.38.214/control?cmd=IRSEND,NEC,1D00B946,32
