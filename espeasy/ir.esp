@@ -61,5 +61,26 @@
         <a class='button link' href="ir.esp?cmd=IRSEND,NEC,1D00A956,32">Tape B</a>
     </div>
 </div>
+<div class="row">
+    <div class="column">
+        <a class='button link' href="ir.esp?cmd=IRSEND,NEC,40BFC837,32">DAB Power</a>
+    </div>
+    <div class="column">
+        <a class='button link' href="ir.esp?cmd=IRSEND,NEC,40BF02FD,32">Radio 1</a>
+    </div>
+    <div class="column">
+        <a class='button link' href="ir.esp?cmd=IRSEND,NEC,40BF48B7,32">Radio 2</a>
+    </div>
+</div>
+<div class="row">
+    <div class="column">
+        <a class='button link' href="ir.esp?cmd=IRSEND,NEC,40BF827D,32">3FM</a>
+    </div>
+    <div class="column">
+        <a class='button link' href="ir.esp?cmd=IRSEND,NEC,40BFD827,32">Veronica</a>
+    </div>
+    <div class="column">
+    </div>
+</div>
 </body>
 </html>
